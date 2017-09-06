@@ -3,5 +3,9 @@
   "env": {
     "node": true
   },
-  "root": true
+  "root": true,
+  "rules": {
+    // We have a lot of CommonJS modules, so this warning doesn't really help
+    "import/unambiguous": "off"
+  }
 }
