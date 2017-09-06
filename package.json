@@ -21,6 +21,6 @@
     "eslint-config-peerigon": "^11.3.1"
   },
   "dependencies": {
-    "webpack": "^3.5.5"
+    "webpack": "3.5.5"
   }
 }
