@@ -1,0 +1,26 @@
+{
+  "name": "webpack-browser-benchmark",
+  "version": "1.0.0",
+  "description": "An I/O independent webpack build for browser benchmarks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhnns/webpack-browser-benchmark.git"
+  },
+  "author": "Johannes Ewald <mail@johannesewald.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhnns/webpack-browser-benchmark/issues"
+  },
+  "homepage": "https://github.com/jhnns/webpack-browser-benchmark#readme",
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-peerigon": "^11.3.1"
+  },
+  "dependencies": {
+    "webpack": "^3.5.5"
+  }
+}
