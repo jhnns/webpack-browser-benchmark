@@ -22,6 +22,4 @@ compiler.run((err, stats) => {
         throw err;
     }
     console.log(stats.toString());
-    // It should print "Hello world"
-    console.log(eval(fs.readFileSync("/src/dist/bundle.js", "utf8"))); // eslint-disable-line no-eval
 });
