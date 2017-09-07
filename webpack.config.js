@@ -7,15 +7,21 @@ module.exports = {
         path: path.resolve(__dirname, "benchmark"),
         filename: "./run.js",
     },
+    node: {
+        __dirname: true,
+        __filename: true,
+    },
     resolve: {
         alias: {
-            fs: require.resolve("./mocks/dummy"),
+            fs: require.resolve("./mocks/fs"),
+            "graceful-fs": require.resolve("./mocks/fs"),
             module: require.resolve("./mocks/dummy"),
             chokidar: require.resolve("./mocks/chokidar"),
             "uglify-js": require.resolve("./mocks/dummy"),
         },
     },
-    // bail: true,
+    devtool: "eval",
+    bail: true,
     plugins: [
         // The node-pre-gyp module optionally requires the aws-sdk
         // It's not necessary for the build though...
