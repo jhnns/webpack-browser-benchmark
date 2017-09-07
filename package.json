@@ -2,9 +2,14 @@
   "name": "webpack-browser-benchmark",
   "version": "1.0.0",
   "description": "An I/O independent webpack build for browser benchmarks",
-  "main": "index.js",
+  "main": "benchmark/run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "test": "run-p test:server test:open-browser",
+    "test:server": "hs",
+    "test:open-browser": "opn http://localhost:8080",
+    "test:sanity": "node benchmark/run.js",
+    "prepublish": "run-s build test:sanity"
   },
   "repository": {
     "type": "git",
@@ -18,11 +23,15 @@
   "homepage": "https://github.com/jhnns/webpack-browser-benchmark#readme",
   "devDependencies": {
     "eslint": "^4.6.1",
-    "eslint-config-peerigon": "^11.3.1"
+    "eslint-config-peerigon": "^11.3.1",
+    "http-server": "^0.10.0",
+    "npm-run-all": "^4.1.1",
+    "opn-cli": "^3.1.0"
   },
   "dependencies": {
     "memory-fs": "0.4.1",
     "raw-loader": "0.5.1",
     "webpack": "3.5.5"
-  }
+  },
+  "files": ["benchmark"]
 }

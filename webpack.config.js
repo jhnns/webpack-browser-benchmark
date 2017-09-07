@@ -20,20 +20,13 @@ module.exports = {
             "uglify-js": require.resolve("./mocks/dummy"),
         },
     },
-    devtool: "eval",
+    // Only activate for debugging
+    // devtool: "eval",
     bail: true,
     plugins: [
-        // The node-pre-gyp module optionally requires the aws-sdk
-        // It's not necessary for the build though...
-        // new webpack.IgnorePlugin(/^(aws-sdk|child_process)$/, /node_modules[/\\]node-pre-gyp[/\\]lib/),
-        // new webpack.IgnorePlugin(/.*/, /node_modules[/\\]loader-runner[/\\]lib$/),
+        // Replace dynamic requires with an empty mock module.
+        // Of course, if the dynamic require() is actually executed in the browser,
+        // we need to prepare the build for that case. Luckily, it is not an issue now.
         new webpack.ContextReplacementPlugin(/^\.$/, path.dirname(require.resolve("./mocks/dummy.js")), {}),
-        // new webpack.ContextReplacementPlugin(/^\.$/, data => {
-        //     if (/node_modules[/\\]loader-runner[/\\]lib$/.test(data.context) === false) {
-        //         return;
-        //     }
-        //     console.log(data);
-        //     data.request = path.relative(data.context, require.resolve("./mocks/dummy.js"));
-        // }),
     ],
 };
