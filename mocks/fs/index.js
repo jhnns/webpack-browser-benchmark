@@ -1,42 +1,16 @@
-module.exports = {
-    readFile() {
-        console.log(arguments);
-        throw new Error("Not implemented");
+const MemoryFs = require("memory-fs");
+
+const fs = new MemoryFs({
+    // These properties are used as flags by the memory-fs to detect directories
+    "": true,
+    "package.json": Buffer.from(require("raw-loader!../../package.json"), "utf8"),
+    src: {
+        "": true,
+        app: {
+            "": true,
+            "entry.js": Buffer.from(require("raw-loader!../../src/app/entry.js"), "utf8"),
+        },
     },
-    readFileSync() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    stat() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    statSync() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    readlink() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    readlinkSync() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    mkdir() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    rmdir() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    unlink() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-    writeFile() {
-        console.log(arguments);
-        throw new Error("Not implemented");
-    },
-};
+});
+
+module.exports = fs;
